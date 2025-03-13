@@ -25,6 +25,11 @@ jobs:
       - name: Build MkDocs site
         run:
           mkdocs build
+      
+
+      - name: Check for symlinks #Check for symlinks
+        run: find . -type l -exec ls -l {} \;
+        
 
       - name: Setup Pages
         uses: actions/configure-pages@v5.0.0
