@@ -29,7 +29,10 @@ jobs:
 
       - name: Check for symlinks #Check for symlinks
         run: find . -type l -exec ls -l {} \;
-        
+
+      - name: Debug List generated files #ebug step to check if MkDocs actually created the site/ directory:
+        run: ls -R site/
+      
 
       - name: Setup Pages
         uses: actions/configure-pages@v5.0.0
