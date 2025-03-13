@@ -30,9 +30,9 @@ jobs:
         uses: actions/configure-pages@v5.0.0
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4.6.1
         with:
-          path: _site  # ./site orig Replace with your actual build directory
+          path: ./site  # ./site orig Replace with your actual build directory
 
   deploy:
     if: github.ref == 'refs/heads/main'
