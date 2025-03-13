@@ -57,7 +57,7 @@ jobs:
 
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deploy.outputs.page_url }} #upate "deployment" to match correct step name
 
     steps:
 
