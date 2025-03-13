@@ -43,8 +43,7 @@ jobs:
           name: github-pages # must match what the deploy step expects
           path: ./site  # ./site orig Replace with your actual build directory
 
-      - name: Remove sitemap.xml.gz (for testing) #see if it's causing issues w deployment
-        run: rm -f site/sitemap.xml.gz
+
 
 
   deploy:
@@ -61,6 +60,9 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      - name: Remove sitemap.xml.gz (for testing) #see if it's causing issues w deployment
+        run: rm -f site/sitemap.xml.gz
+        
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
