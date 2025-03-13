@@ -60,9 +60,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Remove sitemap.xml.gz (for testing) #see if it's causing issues w deployment
-        run: rm -f site/sitemap.xml.gz
-        
+      - name: Check if sitemap.xml.gz is a symlink #debug step
+        run: ls -l site/sitemap.xml.gz
+      
+      #- name: Remove sitemap.xml.gz (for testing) #see if it's causing issues w deployment
+      # run: rm -f site/sitemap.xml.gz
+
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
