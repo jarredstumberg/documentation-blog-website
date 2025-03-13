@@ -41,7 +41,7 @@ jobs:
         uses: actions/upload-artifact@v4.6.1
         with:
           name: github-pages # must match what the deploy step expects
-          path: ./site  # ./site orig Replace with your actual build directory
+          path: site/  # ./site orig Replace with your actual build directory
 
 
 
@@ -60,14 +60,13 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Check if sitemap.xml.gz is a symlink #debug step
-        run: ls -l site/sitemap.xml.gz
-      
+
+        
       #- name: Remove sitemap.xml.gz (for testing) #see if it's causing issues w deployment
       # run: rm -f site/sitemap.xml.gz
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4.0.5
         with:
             artifact_name: github-pages
         
