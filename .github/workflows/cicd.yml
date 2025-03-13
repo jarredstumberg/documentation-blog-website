@@ -29,9 +29,10 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5.0.0
 
-      - name: Upload Pages artifact
+      - name: Upload Pages artifact #Upload Pages artifact org
         uses: actions/upload-artifact@v4.6.1
         with:
+          name: github-pages # must match what the deploy step expects
           path: ./site  # ./site orig Replace with your actual build directory
 
   deploy:
